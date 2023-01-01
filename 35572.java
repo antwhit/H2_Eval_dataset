@@ -1,0 +1,17 @@
+class TestStaticCall {
+
+    public static void main(String args[]) {
+        runTest();
+    }
+
+    public static void runTest() {
+        SystemOut.println("TestStaticCall");
+        int i = f(111);
+        SystemOut.print("\nwant: 333\n got: ");
+        SystemOut.println(i);
+    }
+
+    static int f(int arg) {
+        return arg + 222;
+    }
+}

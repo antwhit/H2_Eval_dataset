@@ -1,0 +1,32 @@
+class sieve {
+
+    static final int size = 8190 * 2;
+
+    static boolean[] flags = new boolean[size + 1];
+
+    public static void main(String[] args) {
+        go();
+    }
+
+    static boolean run() {
+        int i = go();
+        System.out.println("Sieve returned: " + i);
+        return true;
+    }
+
+    public static int go() {
+        int i, prime, k, count = 0, iter;
+        for (iter = 1; iter <= 100; iter++) {
+            count = 0;
+            for (i = 0; i <= size; i++) flags[i] = true;
+            for (i = 0; i <= size; i++) {
+                if (flags[i]) {
+                    prime = i + i + 3;
+                    for (k = i + prime; k <= size; k += prime) flags[k] = false;
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
